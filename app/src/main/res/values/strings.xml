@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Simple Twitter Client</string>
+    <string name="title_map">Map</string>
+    <string name="title_search">Search</string>
+    <string name="radius">Radius</string>
+
+    <string name="ok">OK</string>
+    <string name="allow">Allow</string>
+    <string name="deny">Deny</string>
+
+    <string name="permission_dialog_title">Permission Needed</string>
+    <string name="permission_dialog_message">The application need permission to work properly.</string>
+
+</resources>
