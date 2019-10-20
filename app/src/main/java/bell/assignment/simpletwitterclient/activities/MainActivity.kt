@@ -1,6 +1,7 @@
 package bell.assignment.simpletwitterclient.activities
 
 import android.content.Intent
+import android.location.Location
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,9 @@ import androidx.fragment.app.Fragment
 import bell.assignment.simpletwitterclient.R
 import bell.assignment.simpletwitterclient.fragments.MapFragment
 import bell.assignment.simpletwitterclient.fragments.SearchFragment
+import bell.assignment.simpletwitterclient.managers.location.LocationManager
+import bell.assignment.simpletwitterclient.managers.location.LocationManagerImpl
+import bell.assignment.simpletwitterclient.managers.location.model.LocationRequest
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +21,8 @@ class MainActivity : AppCompatActivity() {
 
     private var currentFragment: Fragment? = null
     private var currentTabId: Int = -1
+
+    private val locationManager: LocationManager =LocationManagerImpl()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        locationManager.onActivityResult(requestCode, resultCode, data)?:
         super.onActivityResult(requestCode, resultCode, data)
     }
 
@@ -78,6 +85,18 @@ class MainActivity : AppCompatActivity() {
 
         currentFragment = frag
         currentTabId = item.itemId
+    }
+
+    fun startUpdateLocation() {
+        locationManager.startUpdateLocation(
+            this,
+            LocationRequest(),
+            { setCurrentLocation(location = it) }
+        )
+    }
+
+    fun setCurrentLocation(location: Location) {
+
     }
 
 
