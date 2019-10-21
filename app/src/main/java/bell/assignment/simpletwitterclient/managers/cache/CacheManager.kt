@@ -9,6 +9,8 @@ import kotlinx.coroutines.runBlocking
 object CacheManager {
 
     val LATLNG_KEY = "latlngKey"
+    val RADIUS_KEY = "radiusKey"
+    val DEFAULT_RADIUS = 5
 
     lateinit var  sharedPreferenceCache: SharedPreferencesCache
     lateinit var lruCache: Cache<Any, Any>
@@ -65,6 +67,19 @@ object CacheManager {
      */
     fun setLurCache(key: Any, value: Any): Deferred<Unit> {
         return lruCache.set(key, value)
+    }
+
+    fun getCachedRadius(): Int {
+        return runBlocking {
+            sharedPreferenceCache.withInt().get(RADIUS_KEY).await()
+                ?: DEFAULT_RADIUS
+        }
+    }
+
+    fun setRadiusCache(value: Int) {
+        runBlocking {
+            sharedPreferenceCache.withInt().set(RADIUS_KEY, value = value).await()
+        }
     }
 
 

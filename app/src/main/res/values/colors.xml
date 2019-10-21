@@ -5,4 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="navigationBarColor">#aaabac</color>
     <color name="black">#000000</color>
+    <color name="lightGrayColor">#BBBBBB</color>
+    <color name="mediumGrayColor">#7F7F7F</color>
+    <color name="darkGrayColor">#777777</color>
+
 </resources>

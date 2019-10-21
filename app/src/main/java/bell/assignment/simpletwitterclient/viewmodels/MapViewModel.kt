@@ -23,7 +23,7 @@ import java.util.*
 class MapViewModel: ViewModel() {
 
     companion object {
-        val refreshMapInterval: Long = 5000L
+        val refreshMapInterval: Long = 30000L
     }
 
     private val tweetsLiveData: MutableLiveData<MutableList<Tweet>> = MutableLiveData()
@@ -32,7 +32,8 @@ class MapViewModel: ViewModel() {
 
     fun getTweetCacheKey(radius: Int): String = "tweetradius=$radius"
 
-    fun fetchTweetsByLocation(location: Location = CacheManager.getCachedLocation(), radius: Int) {
+    fun fetchTweetsByLocation(location: Location = CacheManager.getCachedLocation(),
+                              radius: Int = CacheManager.getCachedRadius()) {
         var tweetList: Any? = null
         runBlocking {
             tweetList =
@@ -55,7 +56,7 @@ class MapViewModel: ViewModel() {
             )
         try {
             TwitterCore.getInstance().apiClient.searchService.tweets(
-                "#news", geocode, null,
+                "", geocode, null,
                 null, null, 100, null, null, null, true
             ).enqueue(object : Callback<Search> {
                 override fun onResponse(call: Call<Search>, response: Response<Search>) {

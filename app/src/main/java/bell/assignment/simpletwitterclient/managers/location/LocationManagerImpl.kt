@@ -4,11 +4,13 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
 import android.os.Bundle
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import bell.assignment.simpletwitterclient.activities.MainActivity
 import bell.assignment.simpletwitterclient.managers.location.model.LocationRequest
 import bell.assignment.simpletwitterclient.managers.location.model.LocationSource
@@ -167,4 +169,5 @@ class LocationManagerImpl: LocationManager {
         }
         return true
     }
+
 }

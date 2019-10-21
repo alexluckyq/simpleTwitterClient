@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/map"
+            app:layout_constraintBottom_toTopOf="@id/mapFragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -21,7 +21,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:layout_marginBottom="@dimen/margin_medium">
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:gravity="center_horizontal">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -30,7 +31,14 @@
                     style="@style/MediumTextViewBlackBold"
                     android:text="@string/radius"/>
 
-
+            <Spinner
+                    android:id="@+id/radiusSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginEnd="@dimen/margin_large"/>
 
         </LinearLayout>
 
@@ -43,7 +51,7 @@
     </LinearLayout>
 
     <fragment
-            android:id="@+id/map"
+            android:id="@+id/mapFragment"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
