@@ -17,6 +17,11 @@ import bell.assignment.simpletwitterclient.managers.premission.Permissionmanager
 
 class LocationManagerImpl: LocationManager {
 
+    companion object {
+        val DEFAULT_LAT: Double = 43.6512
+        val DEFAULT_LNG: Double = -79.3704
+    }
+
     private val REQUEST_PERMISSION_LOCATRION = 1002
     private val REQUEST_SETTINGS = 1003
 

@@ -3,6 +3,7 @@ package bell.assignment.simpletwitterclient.application
 import android.app.Application
 import android.util.Log
 import bell.assignment.simpletwitterclient.BuildConfig
+import bell.assignment.simpletwitterclient.managers.cache.CacheManager
 import com.twitter.sdk.android.core.DefaultLogger
 import com.twitter.sdk.android.core.Twitter
 import com.twitter.sdk.android.core.TwitterAuthConfig
@@ -13,6 +14,7 @@ class SimpleTwitterClientApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         initTwitter()
+        CacheManager.init(this)
     }
 
     private fun initTwitter() {

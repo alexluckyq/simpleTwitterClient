@@ -1,4 +1,4 @@
-package bell.assignment.simpletwitterclient.cache
+package bell.assignment.simpletwitterclient.managers.cache
 
 /**
  * A cache exception that can hold multiple causes. The first exception is available in cause and subsequent exceptions

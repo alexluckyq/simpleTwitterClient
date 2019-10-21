@@ -1,7 +1,6 @@
 package bell.assignment.simpletwitterclient.activities
 
 import android.content.Intent
-import android.location.Location
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +8,7 @@ import androidx.fragment.app.Fragment
 import bell.assignment.simpletwitterclient.R
 import bell.assignment.simpletwitterclient.fragments.MapFragment
 import bell.assignment.simpletwitterclient.fragments.SearchFragment
+import bell.assignment.simpletwitterclient.managers.cache.CacheManager
 import bell.assignment.simpletwitterclient.managers.location.LocationManager
 import bell.assignment.simpletwitterclient.managers.location.LocationManagerImpl
 import bell.assignment.simpletwitterclient.managers.location.model.LocationRequest
@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         bottomNavigationItemSelected(navView.menu.getItem(0))
+        startUpdateLocation()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -91,13 +92,8 @@ class MainActivity : AppCompatActivity() {
         locationManager.startUpdateLocation(
             this,
             LocationRequest(),
-            { setCurrentLocation(location = it) }
+            { CacheManager.setCurrentLocation(location = it) }
         )
     }
-
-    fun setCurrentLocation(location: Location) {
-
-    }
-
 
 }

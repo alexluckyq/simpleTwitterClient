@@ -1,4 +1,4 @@
-package bell.assignment.simpletwitterclient.cache
+package bell.assignment.simpletwitterclient.managers.cache
 
 import android.content.Context
 import android.content.SharedPreferences
