@@ -73,6 +73,70 @@ fun Tweet.getTweetMarkerString(): String = TweetData(
     tweetId = this.id, tweetText = this.text, timeStampString = this.createdAt
 ).mapMarkerSnippetString
 
+fun Tweet.initizeTweetDataFromTweet(): TweetData = TweetData(
+    tweetId = this.id,
+    profileImageUrl = this.user.profileImageUrl,
+    timeStampString = this.createdAt,
+    tweetText = this.text,
+    reTweetCount = this.retweetCount,
+    tweetFavoriteCount = this.favoriteCount,
+    tweetFavorited = this.favorited,
+    retweeted = this.retweeted,
+    userName = this.user.name,
+    userScreenName = this.user.screenName,
+    tweetPhotoUrl = this.getImageUrl(),
+    tweetVideoCoverUrl = this.getVideoCoverUrl(),
+    tweetVideoUrl = this.getVideoUrlType()
+)
+
+fun Tweet.getVideoUrlType(): Pair<String, String> {
+    return try {
+        if (hasSingleVideo() || hasMultipleMedia()) {
+            val variant = extendedEntities.media[0].videoInfo.variants
+            Pair(variant[0].url, variant[0].contentType)
+        } else
+            Pair("", "")
+    } catch (e: Exception) {
+        Pair("", "")
+    }
+}
+
+fun Tweet.getImageUrl(): String {
+    return try {
+        if (hasSingleImage() || hasMultipleMedia())
+            entities.media[0]?.mediaUrl ?: ""
+        else
+            ""
+    } catch (e: Exception) {
+        ""
+    }
+}
+
+fun Tweet.getVideoCoverUrl(): String {
+    return try {
+        if (hasSingleVideo() || hasMultipleMedia())
+            entities.media[0]?.mediaUrlHttps ?: (entities.media[0]?.mediaUrl ?: "")
+        else
+            ""
+    } catch (e: Exception) {
+        ""
+    }
+}
+
+fun Tweet.hasSingleVideo(): Boolean {
+    extendedEntities?.media?.size?.let { return it == 1 && extendedEntities.media[0].type != "photo" }
+    return false
+}
+
+fun Tweet.hasSingleImage(): Boolean {
+    extendedEntities?.media?.size?.let { return it == 1 && extendedEntities.media[0].type == "photo" }
+    return false
+}
+
+fun Tweet.hasMultipleMedia(): Boolean {
+    extendedEntities?.media?.size?.let { return it > 1 }.run { return false }
+}
+
 //endregion Extensions for Tweet
 
 // region map maker

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+
+        <variable
+                name="tweetMedia"
+                type="bell.assignment.simpletwitterclient.data.TweetData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:paddingLeft="@dimen/margin_large"
+            android:paddingRight="@dimen/margin_large">
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                tools:ignore="MergeRootFrame"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                android:visibility="@{TextUtils.isEmpty(tweetMedia.tweetVideoCoverUrl)? View.GONE :View.VISIBLE}">
+
+            <ImageView
+                    android:id="@+id/tweetVideoImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            <ImageButton
+                    android:id="@+id/playVideoImageButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/play" />
+
+        </FrameLayout>
+
+        <ImageView
+                android:id="@+id/tweetPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                android:visibility="@{TextUtils.isEmpty(tweetMedia.tweetPhoto)?View.GONE :View.VISIBLE}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

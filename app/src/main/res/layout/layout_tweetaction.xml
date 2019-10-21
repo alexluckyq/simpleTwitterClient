@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+                name="tweetItemAction"
+                type="bell.assignment.simpletwitterclient.data.TweetData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:paddingLeft="@dimen/margin_large"
+            android:paddingRight="@dimen/margin_large">
+
+        <ImageButton
+                android:id="@+id/favouriteImageButton"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/heart_outline"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/favouritesStatsTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/favouritesStatsTextView"
+                style="@style/SmallTextViewGreyBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@{``+tweetItemAction.tweetFavoriteCount}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/retweetImageButton"
+                app:layout_constraintStart_toEndOf="@+id/favouriteImageButton"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="200" />
+
+        <ImageButton
+                android:id="@+id/retweetImageButton"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/margin_xlarge"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/retweet"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/favouritesStatsTextView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+                android:id="@+id/retweetsStatsTextView"
+                style="@style/SmallTextViewGreyBold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_weight="1"
+                android:text="@{``+tweetItemAction.reTweetCount}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/retweetImageButton"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="22" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
