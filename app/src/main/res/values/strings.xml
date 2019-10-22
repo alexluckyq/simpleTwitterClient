@@ -16,5 +16,7 @@
     <string name="permission_dialog_title">Permission Needed</string>
     <string name="permission_dialog_message">The application need permission to work properly.</string>
     <string name="login_failed">Login failed, please try again</string>
+    <string name="no_results">No Results</string>
+    <string name="search_by_keyword_or_hastag">Search by Keyword or Hashtag</string>
 
 </resources>

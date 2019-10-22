@@ -23,6 +23,11 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="MediumTextViewGreyBold" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/mediumGrayColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="SmallTextViewGreyNormal" parent="TextAppearance.AppCompat.Small">
         <item name="android:textColor">@color/lightGrayColor</item>
         <item name="android:textStyle">normal</item>
@@ -36,6 +41,14 @@
     <style name="SmallTextViewGreyBold" parent="TextAppearance.AppCompat.Small">
         <item name="android:textColor">@color/darkGrayColor</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="actionBarWidgetTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorHint">@color/lightGrayColor</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/black</item>
+        <item name="colorControlActivated">@android:color/black</item>
     </style>
 
 </resources>
