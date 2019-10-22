@@ -9,7 +9,7 @@
         <import type="android.text.TextUtils" />
 
         <variable
-                name="tweetData"
+                name="tweetProfile"
                 type="bell.assignment.simpletwitterclient.data.TweetData" />
     </data>
 
@@ -23,6 +23,8 @@
                 android:id="@+id/userProfilePicImageView"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:src="@drawable/default_user_thumbnail"
+                android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/userNameTextView"
                 app:layout_constraintStart_toStartOf="parent"
@@ -36,8 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/margin_large"
-                android:text="@{tweetData.userName}"
-                android:visibility="@{TextUtils.isEmpty(tweetData.userName)? View.GONE : View.VISIBLE}"
+                android:text="@{tweetProfile.userName}"
+                android:visibility="@{TextUtils.isEmpty(tweetProfile.userName)? View.GONE : View.VISIBLE}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/userProfilePicImageView"
                 app:layout_constraintTop_toTopOf="parent"
@@ -51,7 +53,7 @@
                 android:layout_gravity="center_vertical"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@{tweetData.formattedTime}"
+                android:text="@{tweetProfile.formattedTimeString}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

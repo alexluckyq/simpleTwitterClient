@@ -4,6 +4,11 @@
     <string name="title_search">Search</string>
     <string name="radius">Radius</string>
 
+    <string name="detail">Details</string>
+    <string name="login">Login</string>
+    <string name="image">Image</string>
+    <string name="video">Video</string>
+
     <string name="ok">OK</string>
     <string name="allow">Allow</string>
     <string name="deny">Deny</string>

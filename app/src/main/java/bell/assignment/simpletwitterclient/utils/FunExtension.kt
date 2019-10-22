@@ -5,8 +5,12 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
 import android.text.format.DateUtils
+import android.widget.ImageView
+import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
+import bell.assignment.simpletwitterclient.R
 import bell.assignment.simpletwitterclient.data.TweetData
+import com.bumptech.glide.Glide
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.twitter.sdk.android.core.models.Coordinates
@@ -144,3 +148,11 @@ fun Tweet.hasMultipleMedia(): Boolean {
 fun Marker.getPinSnippetList(): List<String> = this.snippet.split("|")
 
 //endregion map maker
+
+// region imageView
+
+fun ImageView.loadImageUrl(url: String?, @DrawableRes placeholder: Int = R.drawable.default_thumbnail) {
+    Glide.with(this).load(url).placeholder(placeholder).into(this)
+}
+
+// endregion imageView

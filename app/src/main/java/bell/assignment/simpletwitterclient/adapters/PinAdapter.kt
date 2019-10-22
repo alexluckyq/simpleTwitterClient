@@ -22,7 +22,7 @@ class PinAdapter (private val context: Context) : GoogleMap.InfoWindowAdapter,
         val tweet = twitterStringList[TweetData.INDEX_TWEET_TEXT]
 
         val view = LayoutInflater.from(context).inflate(R.layout.map_marker_view, null)
-        Glide.with(context).load(profileImageUrl).into(view.findViewById(R.id.profileImage))
+        Glide.with(context).load(profileImageUrl).placeholder(R.drawable.default_user_thumbnail).into(view.findViewById(R.id.profileImage))
 
         view.findViewById<TextView>(R.id.timestamp).text = timestamp.formatTime()
         view.findViewById<TextView>(R.id.name).text = marker.title

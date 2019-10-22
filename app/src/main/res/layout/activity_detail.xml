@@ -7,7 +7,6 @@
     <data>
 
         <import type="android.view.View" />
-
         <import type="android.text.TextUtils" />
 
         <variable
@@ -36,7 +35,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:tweetData="@{tweetData}" />
+                    app:tweetProfile="@{tweetData}" />
 
             <include
                     android:id="@+id/mediaLayout"
@@ -48,7 +47,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/userInfoLayout"
-                    app:tweetMedia="@{tweet}" />
+                    app:tweetMedia="@{tweetData}" />
 
             <include
                     android:id="@+id/tweetTextLayout"
@@ -73,7 +72,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:tweetItemAction="@{tweet}" />
+                    app:tweetItemAction="@{tweetData}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

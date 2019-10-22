@@ -1,5 +1,7 @@
 package bell.assignment.simpletwitterclient.data
 
+import bell.assignment.simpletwitterclient.utils.formatTime
+
 /**
  * TweetData model mapping from Tweet of Twitter framework
  */
@@ -29,5 +31,6 @@ class TweetData(
     val mapMarkerSnippetString: String
         get() = "$tweetId|$profileImageUrl|$timeStampString|$tweetText"
 
-
+        val formattedTimeString: String
+                get() = timeStampString.formatTime().toString()
 }

@@ -25,6 +25,32 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+                android:name=".activities.LoginActivity"
+                android:label="@string/login">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activities.DetailActivity"
+                android:label="@string/detail"
+                android:parentActivityName=".activities.MainActivity"
+                android:theme="@style/AppTheme" />
+
+        <activity
+                android:name=".activities.ImageActivity"
+                android:label="@string/image" />
+
+        <activity
+                android:name=".activities.VideoActivity"
+                android:label="@string/video" />
+
+
     </application>
 
 </manifest>

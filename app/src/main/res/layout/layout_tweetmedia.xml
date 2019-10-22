@@ -54,6 +54,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="parent"
-                android:visibility="@{TextUtils.isEmpty(tweetMedia.tweetPhoto)?View.GONE :View.VISIBLE}" />
+                android:visibility="@{TextUtils.isEmpty(tweetMedia.tweetPhotoUrl)?View.GONE :View.VISIBLE}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
