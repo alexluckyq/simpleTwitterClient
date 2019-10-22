@@ -50,7 +50,6 @@
                 android:name=".activities.VideoActivity"
                 android:label="@string/video" />
 
-
     </application>
 
 </manifest>

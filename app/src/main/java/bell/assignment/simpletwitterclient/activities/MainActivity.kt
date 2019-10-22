@@ -92,7 +92,9 @@ class MainActivity : AppCompatActivity() {
         locationManager.startUpdateLocation(
             this,
             LocationRequest(),
-            { CacheManager.setCurrentLocation(location = it) }
+            {
+                CacheManager.setCurrentLocation(location = it)
+            }
         )
     }
 

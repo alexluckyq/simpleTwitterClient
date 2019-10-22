@@ -82,7 +82,8 @@ class MapFragment: Fragment(), OnMapReadyCallback {
                     getZoomLevel()
                 )
             )
-            isLocationPermissionGranted(it)?.let {
+
+            if (isLocationPermissionGranted(it)) {
                 googleMap.isMyLocationEnabled = true
             }
         }

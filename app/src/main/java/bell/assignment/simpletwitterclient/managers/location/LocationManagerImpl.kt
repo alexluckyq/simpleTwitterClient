@@ -58,7 +58,7 @@ class LocationManagerImpl: LocationManager {
         this.context = context
         this.onLocationUpdated = onLocationUpdated
 
-        if (locationManager != null) {
+        if (locationManager == null) {
             locationManager = context.getSystemService(Context.LOCATION_SERVICE) as android.location.LocationManager
         }
 
