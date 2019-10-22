@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import bell.assignment.simpletwitterclient.R
+import bell.assignment.simpletwitterclient.activities.DetailActivity
 import bell.assignment.simpletwitterclient.data.TweetData
 import bell.assignment.simpletwitterclient.utils.formatTime
 import bell.assignment.simpletwitterclient.utils.getPinSnippetList
@@ -37,7 +38,7 @@ class PinAdapter (private val context: Context) : GoogleMap.InfoWindowAdapter,
         marker?.let {
             val text = marker.getPinSnippetList()
             val id = text[TweetData.INDEX_TWEET_ID].toLong()
-//        startTwitterDetailActivity(id)
+        DetailActivity.openActivity(id, context)
         }
     }
 }

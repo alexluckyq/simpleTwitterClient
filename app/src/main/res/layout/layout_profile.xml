@@ -20,7 +20,7 @@
             android:paddingRight="@dimen/margin_large">
 
         <ImageView
-                android:id="@+id/userProfilePicImageView"
+                android:id="@+id/profileImageView"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/default_user_thumbnail"
@@ -41,7 +41,7 @@
                 android:text="@{tweetProfile.userName}"
                 android:visibility="@{TextUtils.isEmpty(tweetProfile.userName)? View.GONE : View.VISIBLE}"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/userProfilePicImageView"
+                app:layout_constraintStart_toEndOf="@id/profileImageView"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text= "test test"/>
 

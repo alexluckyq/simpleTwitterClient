@@ -12,7 +12,7 @@ class TweetData(
         val timeStampString: String,
         val tweetText: String,
         val tweetFavoriteCount: Int = 0,
-        val tweetFavorited: Boolean = false,
+        val favorited: Boolean = false,
         val reTweetCount: Int = 0,
         val retweeted: Boolean = false,
         val userScreenName: String = "",
