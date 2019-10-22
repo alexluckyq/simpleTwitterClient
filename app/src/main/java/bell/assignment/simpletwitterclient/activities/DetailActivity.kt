@@ -25,10 +25,12 @@ class DetailActivity: AppCompatActivity() {
     companion object {
         val TWEET_ID = "tweetId"
 
-        fun openActivity(tweetId: Long, context: Context) {
+        fun openActivity(tweetId: Long, context: Context?) {
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra(TWEET_ID, tweetId)
-            context.startActivity(intent)
+            context?.let {
+                context.startActivity(intent)
+            }
         }
     }
 
